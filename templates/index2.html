@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gesture Recognition</title>
+</head>
+<body>
+    <h1>Gesture Recognition</h1>
+    <img src="{{ url_for('video_feed') }}" width="640" height="480">
+
+    <h2>Key Points Sequence:</h2>
+    <ul>
+        {% for keypoint in sequence %}
+            <li>{{ keypoint }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

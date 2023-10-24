@@ -1,0 +1,40 @@
+body{
+    margin: 0!important;
+    padding: 0!important;
+    font-family: 'Chakra Petch', sans-serif!important;
+}
+hr{
+    
+    opacity: 1!important;
+}
+.w-90{
+    width: 90%!important;
+}
+.navbar{
+    background-color: #DCD2C6!important;
+}
+.bg1{
+    background-color: #E6E3DC!important;
+}
+.btn{
+    background-color: #635F5F!important;
+    border: 0!important;
+}
+.bg-grey{
+    background-color: #D9D9D9;
+}
+#pic{
+    width: 500px !important;
+    height: 500px !important;
+    background-color: white;
+}
+#footer{
+    background-color: #DCD2C6;
+}
+.footer-text{
+    color: #6D7075;
+}
+.copyright{
+    background-color: #6D7075!important;
+    color: white!important;
+}

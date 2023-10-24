@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- my css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+    <!-- font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chakra Petch">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <title>AI</title>
+</head>
+
+<body>
+    <div class="mx-5">
+        <!-- nav -->
+        <nav class="navbar  my-5 p-4" id="nav">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <h1>Signify <i class="bi bi-house-door-fill"></i></h1>
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg1 p-5 d-block text-center mb-5">
+            <br>
+            <p class="display-5 fw-bold">Sign Language Detection to Thai subtitle</p>
+            <br><br>
+            <p class="display-6 fw-bold">ทดลองการสร้างประโยคจากภาษามือแบบเรียลไทม์</p>
+            <br><br><br>
+            <a class="btn btn-primary py-3 px-5" role="button" href="#test">
+                <h3 class="m-0">ทดลองใช้งาน</h3>
+            </a>
+            <br><br>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <p class="display-6 fw-bold text-center" id="test">หน้าจอสำหรับทดสอบภาษามือ</p>
+
+        <div class="text-center bg-grey my-5 p-5">
+            <div class="row p-2">
+                <div class="col">
+                    <div id="pic" class="mx-auto white-overlay"></div>
+                    <div id="video-container" style="display: none;">
+                        <img src="{{ url_for('video_feed') }}" width="640" height="480">
+                    </div>
+                </div>
+                <div class="col text-center">
+                    <p class="display-6 fw-bold">ข้อแนะนำการใช้ภาษามือกับกล้อง</p>
+                    <br>
+                    <h2>ภาพจะมีการจับข้อมูลของเราตลอดเวลา</h2>
+                    <h2>แต่จะทำการ Record คำจากภาษามือ</h2>
+                    <h2>ทุกๆ 1 วินาที มาเป็น subtitle</h2>
+                    <h2>ภายในจอ</h2>
+                    <br><br><br>
+                    <a id="start-button" class="btn btn-primary py-3 px-5" href="#" role="button">
+                        <h3 class="m-0">เริ่มต้นการใช้งาน</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // ซ่อนแผ่นสีขาวเมื่อหน้าเว็บโหลด
+                $(".white-overlay").hide();
+
+                // เมื่อคลิกที่ปุ่ม "เริ่มต้นการใช้งาน"
+                $("#start-button").click(function () {
+                    // ซ่อนแผ่นสีขาว
+                    $(".white-overlay").hide();
+                    // แสดง HTML ของวิดิโอ
+                    $("#video-container").show();
+
+                    event.preventDefault();
+                });
+            });
+        </script>
+
+        <div class="row p-4">
+            <div class="col">
+            </div>
+            <div class="col">
+                <h1 class="mx-auto text-center">ตัวอย่างท่าภาษามือ</h1>
+                <div id="pic" class="mx-auto text-center">
+                    <img src="{{ url_for('static', filename='vdo/love.gif') }}" alt="love" class="w-75">
+                    <h3 class="mt-5 pt-3">รัก</h3>
+                </div>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <div class="bg-grey p-5 mb-5">
+            <h1 class="fw-bold">ที่มาของข้อมูลภาษามือ</h1><br>
+            <h2 class="fw-bold footer-text">ขอบคุณข้อมูลจาก : กองทุนส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ</h2><br>
+            <h2 class="fw-bold footer-text">แหล่งภาพที่มา : สร้างสรรค์โดย สมาคมคนหูหนวกแห่งประเทศไทย</h2>
+        </div>
+
+    </div>
+    <div id="footer">
+        <div class="p-5 ms-5  footer-text">
+            <div>
+                <h1>Signify</h1>
+            </div>
+            <div class="container ms-0">
+                <div class="row">
+                    <div class="col-lg-6 ps-0">
+                        <br>
+                        <h5>TEL : 064-005-0037 </h5>
+                        <h5>Address : King Mongkut's Institute of Technology Ladkrabang </h5>
+                        <h5>Email : contact@bookreviews.com</h5>
+                    </div>
+                    <div class="col-lg-3">
+                        <h4>นโยบาย</h4>
+                        <div class="ps-4">
+                            <h5>การคุ้มครองข้อมูลส่วนบุคคล</h5>
+                            <h5>นโยบายความเป็นส่วนตัว</h5>
+                            <h5>ข้อกำหนดการให้บริการ</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <h4>ติดตามเราได้ที่</h4>
+                        <div class="ps-4">
+                            <h5><i class="bi bi-facebook"></i>&emsp;FACEBOOK</h5>
+                            <h5><i class="bi bi-instagram"></i>&emsp;INSTRAGRAM</h5>
+                            <h5><i class="bi bi-twitter"></i>&emsp;TWITTER</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center pt-3 pb-1 copyright">
+            <h6>© Signify . All rights reserved.</h6>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
